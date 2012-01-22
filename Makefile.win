@@ -1,0 +1,45 @@
+# Project: jsyn
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = main.o scandir.o if.o stat.o comment.o parse.o $(RES)
+LINKOBJ  = main.o scandir.o if.o stat.o comment.o parse.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib"  
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = jsy.exe
+CXXFLAGS = $(CXXINCS)   -O1
+CFLAGS = $(INCS)   -O1
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before jsy.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o "jsy.exe" $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+scandir.o: scandir.c
+	$(CC) -c scandir.c -o scandir.o $(CFLAGS)
+
+if.o: if.c
+	$(CC) -c if.c -o if.o $(CFLAGS)
+
+stat.o: stat.c
+	$(CC) -c stat.c -o stat.o $(CFLAGS)
+
+comment.o: comment.c
+	$(CC) -c comment.c -o comment.o $(CFLAGS)
+
+parse.o: parse.c
+	$(CC) -c parse.c -o parse.o $(CFLAGS)
